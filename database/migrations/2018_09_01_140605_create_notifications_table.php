@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateNotificationsTable
+ */
 class CreateNotificationsTable extends Migration
 {
     /**
@@ -15,6 +18,10 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('message')->nullbale();
+            $table->timestamp('publish_at');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

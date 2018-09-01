@@ -5,24 +5,27 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Post
+ * Class UserToken
  * @package App
  */
-class Post extends Model
+class UserToken extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'users_token';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'title',
-        'favorite',
         'user_id',
+        'token',
+    ];
+
+    protected $hidden = [
+        'token',
     ];
 
     /**
-     * post sender relation
+     * user relation
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function admin()
     {
         return $this->belongsTo (User::class,'user_id','id');
     }
