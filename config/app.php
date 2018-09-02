@@ -165,6 +165,12 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        /*
+         * Cros Provider...
+         */
+        Barryvdh\Cors\ServiceProvider::class,
+
+
     ],
 
     /*
