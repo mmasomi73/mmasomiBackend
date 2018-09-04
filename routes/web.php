@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    auth ()->login (\App\User::first());
+    $user = auth ()->user ()->load('token');
+    if(empty($user->token)){
+        $token = New \App\UserToken();
+        $token->user_id = $user->id;
+        $token->token = \Illuminate\Support\Str::random (120);
+        $token->save ();
+        $user = auth ()->user ()->load('token');
+    }
+    return response ()->json (['result'=>[
+        'name'=>$user->name,
+        'family'=>$user->family,
+        'email'=>$user->email,
+        'token'=>$user->token->token,
+        'username'=>$user->username
+    ],'status'=>200]);
 });
