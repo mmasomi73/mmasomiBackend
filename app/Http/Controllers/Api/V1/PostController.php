@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $posts = Post::all ();
 
-        return response ()->json (['posts'=>$posts,'status'=>200]);
+        return response (['posts'=>$posts,'status'=>200],200);
     }
 
     /**
@@ -30,7 +30,10 @@ class PostController extends Controller
      */
     public function postStore(Request $request)
     {
-        $post = Post::create ($request->all ());
-        return response ()->json (['post'=>$post,'status'=>200]);
+    	if($request->get('key') == '123456789ma'){
+		    $post = Post::create ($request->all ());
+		    return response ()->json (['post'=>$post,'status'=>200]);
+	    }
+	    return response (['status'=>400],400);
     }
 }

@@ -1,0 +1,215 @@
+.emb-player-box{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #ffffff;
+    z-index: 9999;
+    border-top: 1px solid #0000001a;
+}
+.em-player{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 5px 20px;
+}
+.p-cover{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    left: 20px;
+    bottom: 5px;
+    border: 1px solid #0000001a;
+    overflow: hidden;
+    border-radius: 2px;
+    background-size: cover;
+    background-image: url(../icons/album-c.png);
+}
+.p-actions{
+    position: relative;
+    direction: ltr;
+    float: left;
+    text-align: left;
+    margin-left: 100px;
+    height: 45px;
+}
+.p-play,
+.p-prev,
+.p-shuffle,
+.p-repeat,
+.p-next{
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 10px;
+    vertical-align: top;
+    padding-top: 12px;
+}
+.p-play{
+    font-size: 34px;
+    padding-top: 0;
+}
+
+.p-seekbar{
+    position: absolute;
+    height: 45px;
+    width: calc(100% - (351px + 230px));
+    display: inline-block;
+    left: 331px;
+}
+
+.p-seekbar .total,.p-seekbar .timer{
+    font-size: 10px;
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+}
+.p-seekbar .total{
+    right: 5px;
+}
+.p-seekbar .timer{
+    left: 5px;
+}
+.p-seekbar .timeline{
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 19px;
+    height: 2px;
+    background: #f3f3f3;
+    direction: ltr;
+}
+.p-seekbar .timeline .line_preload{
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: #d7d7d7;
+    width: 0;
+}
+.p-seekbar .timeline .line_played{
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: #00bcd4;
+    width: 0;
+}
+.p-info{
+    position: absolute;
+    width: 230px;
+    right: 14px;
+    top: 5px;
+    bottom: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+.p-info .p-title{
+    margin-top: 5px;
+    color: #b9b9b9;
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
+.p-info .p-artist{
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: ltr;
+}
+
+.music-list{
+    border-bottom: 1px solid #e2e2e2;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 25px 0 0 25px;
+    margin-top: 3px;
+}
+.music-list .detail{
+    padding-left: 45px;
+    font-size: 12px;
+}
+.music-list .detail .cover{
+    width: 45px;
+    height: 45px;
+    background-size: cover !important;
+    position: absolute;
+    left: 0;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #e2e2e2;
+}
+.music-list .detail .title{
+    padding-left: 8px;
+}
+.music-list .detail .artist{
+    margin-top: 5px;
+    color: #ababab;
+    padding-left: 8px;
+}
+.music-list .play{
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.music-list .delete,.music-list .edit{
+    cursor: pointer;
+}
+.music-list .time{
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 10px;
+}
+.music-list .listen{
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    top: 26px;
+    font-size: 10px;
+}
+.p-divider{
+    height: 1px;
+    background: #e2e2e2;
+    margin: 30px 10px;
+}
+
+/*-----= Edit Page =-----*/
+.music-edit .cover{
+    width: 12rem;
+    height: 12rem;
+    background-size: cover !important;
+    border: 1px solid #e2e2e2;
+    border-radius: 2px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.music-edit .detail{
+    height: 12rem;
+}
+.music-edit .info{
+    display: inline-block;
+    margin-left: 12rem;
+    padding: 5px 10px;
+    width: calc(100% - 40px);
+}
+.c-cyen{
+    color: #00BCD4;
+    font-size: 2rem;
+}
+
+.pointer{
+    cursor: pointer;
+}
+.p-right{
+    float: right;
+}

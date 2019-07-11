@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class Post
@@ -10,20 +12,23 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
-    protected $table = 'posts';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'title',
-        'favorite',
-        'user_id',
-    ];
+	use Notifiable,SoftDeletes;
 
-    /**
-     * post sender relation
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo (User::class,'user_id','id');
-    }
+	public $table = 'posts';
+	public $primaryKey = 'id';
+	protected $dates = ['deleted_at'];
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'title',
+		'post',
+		'back_post',
+		'cover',
+		'photo',
+		'published_at',
+		'deleted_at',
+	];
 }

@@ -3,37 +3,37 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-/**
- * Class Admin
- * @package App
- */
 class Admin extends Authenticatable
 {
-    use Notifiable;
+	use Notifiable;
 
-    protected $table = 'admins';
-    protected $primaryKey = 'id';
-    protected $fillable = [
-        'name',
-        'family',
-        'username',
-        'email',
-        'password',
-        'status',
-    ];
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'name', 'email', 'password',
+	];
 
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	/**
+	 * The attributes that should be hidden for arrays.
+	 *
+	 * @var array
+	 */
+	protected $hidden = [
+		'password', 'remember_token',
+	];
 
-    /**
-     * admin api token
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function token()
-    {
-        return $this->hasOne (AdminToken::class,'admin_id','id');
-    }
+	/**
+	 * The attributes that should be cast to native types.
+	 *
+	 * @var array
+	 */
+	protected $casts = [
+		'email_verified_at' => 'datetime',
+	];
 }
