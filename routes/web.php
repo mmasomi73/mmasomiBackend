@@ -11,8 +11,8 @@
 |
 */
 
-Route::prefix('admin')->name('admin.')->group(function () {
-	Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('login.form');
-	Route::post('login', 'Admin\Auth\LoginController@login')->name('login');
-	Route::get('logout', 'Admin\Auth\LoginController@logout')->name('logout');
+Route::group(['domain' => 'admin.'.env('APP_DOMAIN')],function () {
+	Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login.form');
+	Route::post('login', 'Admin\Auth\LoginController@login')->name('admin.login');
+	Route::get('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 });
